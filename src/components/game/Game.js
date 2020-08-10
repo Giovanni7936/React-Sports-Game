@@ -4,6 +4,7 @@ import ScoreBoard from '../scoreboard/Scoreboard'
 import Shoutsound from '../assets/soundclips/1-up.mp3'
 import Fireball from '../assets/soundclips/fireball.mp3'
 
+
 class Game extends React.Component {
     constructor(props) {
       super(props)
@@ -24,6 +25,7 @@ class Game extends React.Component {
       this.Shoutnoise = new Audio(Shoutsound)
       this.smb_Fireball = new Audio(Fireball)
       
+      
   
       
     }
@@ -31,12 +33,13 @@ class Game extends React.Component {
     shoot = (team) => {
       const teamStatsKey = `${team}TeamStats`
       let score = this.state[teamStatsKey].score
-      this.Shoutnoise.play()
+      this.smb_Fireball.play()
       
   
       if (Math.random() > 0.5) {
         
         score += 1
+        this.Shoutnoise.play()
   
         
       }
@@ -48,6 +51,7 @@ class Game extends React.Component {
           
           
         }
+        
         
         
 
@@ -68,7 +72,8 @@ class Game extends React.Component {
           score: 0
         }
       }))
-      this.smb_Fireball.play()
+      
+      
     }
   
     render() {
